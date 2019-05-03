@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imv_home_Trailer"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:alpha=".8"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bigsick"
+        tools:ignore="VectorDrawableCompat" />
+
+    <View
+        android:id="@+id/textureView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="42dp"
+        android:background="@android:drawable/screen_background_dark_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imv_home_Trailer"
+        app:layout_constraintStart_toStartOf="@+id/imv_home_Trailer"
+        app:layout_constraintTop_toTopOf="@+id/imv_home_Movie" />
+
+    <TextView
+        android:id="@+id/txt_home_movieName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_mono_medium_italic"
+        android:maxLines="2"
+        android:text="@string/home_txt_movieName"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/home_txtSize_movieName"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_home_Trailer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imv_home_Movie"
+        app:layout_constraintTop_toTopOf="@+id/textureView" />
+
+    <ImageView
+        android:id="@+id/imv_home_Movie"
+        android:layout_width="@dimen/home_width_imvMovie"
+        android:layout_height="@dimen/home_height_imvMovie"
+        android:layout_marginStart="@dimen/home_margin_start_imvHomeMovie"
+        android:layout_marginBottom="@dimen/home_margin_bottom_imvHomeMovie"
+        android:scaleType="fitXY"
+        android:src="@drawable/llamanamor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imbPlayTrailer"
+        android:layout_width="@dimen/home_width_imbPlay"
+        android:layout_height="@dimen/home_height_imbPlay"
+        app:layout_constraintBottom_toTopOf="@+id/txt_home_movieName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imv_home_Trailer"
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        tools:ignore="VectorDrawableCompat" />
+
+</android.support.constraint.ConstraintLayout>

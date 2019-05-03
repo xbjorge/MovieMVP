@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Movie Adventure</string>
+    <string name="home_appBar">Discover</string>
+    <string name="home_slider_nombrePelicula">Nombre de la Pelicula</string>
+    <string name="home_txt_movieName">Nombre de la Pelicula</string>
+
 </resources>
