@@ -23,7 +23,7 @@
         android:id="@+id/textureView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="48dp"
         android:background="@android:drawable/screen_background_dark_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imv_home_Trailer"
@@ -60,15 +60,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imbPlayTrailer"
-        android:layout_width="@dimen/home_width_imbPlay"
-        android:layout_height="@dimen/home_height_imbPlay"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/txt_home_movieName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imv_home_Trailer"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:ignore="VectorDrawableCompat" />
+        app:srcCompat="@android:drawable/ic_media_play" />
 
 </android.support.constraint.ConstraintLayout>
