@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -16,8 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bigsick"
-        tools:ignore="VectorDrawableCompat" />
+        app:srcCompat="@drawable/bigsick"/>
 
     <View
         android:id="@+id/textureView"
@@ -32,16 +30,16 @@
 
     <TextView
         android:id="@+id/txt_home_movieName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_mono_medium_italic"
-        android:maxLines="2"
+        android:gravity="center"
         android:text="@string/home_txt_movieName"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
         android:textSize="@dimen/home_txtSize_movieName"
         app:layout_constraintBottom_toBottomOf="@+id/imv_home_Trailer"
@@ -55,10 +53,10 @@
         android:layout_height="@dimen/home_height_imvMovie"
         android:layout_marginStart="@dimen/home_margin_start_imvHomeMovie"
         android:layout_marginBottom="@dimen/home_margin_bottom_imvHomeMovie"
-        android:scaleType="fitXY"
         android:src="@drawable/llamanamor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+    <!--android:scaleType="fitXY"-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"

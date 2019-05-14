@@ -1,5 +1,7 @@
 package com.example.movieadventure.homemodule;
 
+import android.support.v4.view.ViewPager;
+
 import com.example.movieadventure.common.pojo.Result;
 import java.util.List;
 
