@@ -3,5 +3,9 @@
     <string name="home_appBar">Discover</string>
     <string name="home_slider_nombrePelicula">Nombre de la Pelicula</string>
     <string name="home_txt_movieName">Nombre de la Pelicula</string>
+    <string name="home_error_conection">No tienes conexión a Internet</string>
+    <string name="homee_slider_popular">Peliculas Populares</string>
+    <string name="home_appBar_options">Configuración</string>
+    <string name="home_appBar_logout">Cerrar Sesión</string>
 
 </resources>

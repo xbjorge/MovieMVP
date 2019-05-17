@@ -1,15 +1,17 @@
 package com.example.movieadventure.homemodule;
 
-import android.support.v4.view.ViewPager;
+import com.example.movieadventure.common.pojos.Result;
 
-import com.example.movieadventure.common.pojo.Result;
 import java.util.List;
 
 public interface HomeActivityMvp {
 
     interface view{
         void setDataToSliderView(List<Result> resultArrayList);
+        void initSliderHomeMovies(List<Result> resultList);
         void onResponseFailure(Throwable throwable);
+        void showPorgressBar();
+        void hideProgressBar();
     }
 
     interface presenter{
@@ -20,8 +22,8 @@ public interface HomeActivityMvp {
     interface GetMovieInteractor {
 
         interface onFinishedListener {
-            void onSuccess(List<Result> movieArrayList);
-            void onFailure(Throwable throwable);
+            void onSuccessListenerGetMovie(List<Result> movieArrayList);
+            void onFailureListenerGetMovie(Throwable throwable);
         }
         void getMovieArrayLit(onFinishedListener onFinishedListener);
     }

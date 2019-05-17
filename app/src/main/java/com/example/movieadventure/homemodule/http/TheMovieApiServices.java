@@ -1,6 +1,6 @@
 package com.example.movieadventure.homemodule.http;
 
-import com.example.movieadventure.common.pojo.MovieList;
+import com.example.movieadventure.common.pojos.MovieList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

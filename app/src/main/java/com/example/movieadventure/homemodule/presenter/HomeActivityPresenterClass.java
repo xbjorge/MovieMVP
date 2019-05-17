@@ -1,9 +1,13 @@
 package com.example.movieadventure.homemodule.presenter;
 
-import com.example.movieadventure.common.pojo.Result;
+import android.support.v4.view.ViewPager;
+
+import com.example.movieadventure.common.pojos.Result;
 import com.example.movieadventure.homemodule.HomeActivityMvp;
+import com.example.movieadventure.homemodule.view.MainActivity;
 
 import java.util.List;
+import java.util.TimerTask;
 
 public class HomeActivityPresenterClass implements HomeActivityMvp.presenter, HomeActivityMvp.GetMovieInteractor.onFinishedListener {
 
@@ -22,20 +26,51 @@ public class HomeActivityPresenterClass implements HomeActivityMvp.presenter, Ho
 
     @Override
     public void onRequestDataFromServer() {
+        if (homeView != null) {
+            homeView.showPorgressBar();
+        }
         getMovieInteractor.getMovieArrayLit(this);
     }
 
     @Override
-    public void onSuccess(List<Result> movieArrayList) {
+    public void onSuccessListenerGetMovie(List<Result> movieArrayList) {
         if (homeView != null){
             homeView.setDataToSliderView(movieArrayList);
+            homeView.initSliderHomeMovies(movieArrayList);
+            homeView.hideProgressBar();
         }
     }
 
     @Override
-    public void onFailure(Throwable throwable) {
+    public void onFailureListenerGetMovie(Throwable throwable) {
         if ( homeView != null){
             homeView.onResponseFailure(throwable);
+            homeView.hideProgressBar();
+        }
+    }
+    public static class SliderTimer extends TimerTask{
+        private MainActivity mainActivity;
+        private List<Result> listResult;
+        private ViewPager viewPager;
+
+        public SliderTimer(MainActivity mainActivity, List<Result> listResult, ViewPager viewPager) {
+            this.mainActivity = mainActivity;
+            this.listResult = listResult;
+            this.viewPager = viewPager;
+        }
+
+        @Override
+        public void run() {
+            mainActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (viewPager.getCurrentItem()<listResult.size()-1) {
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    }
+                    else
+                        viewPager.setCurrentItem(0);
+                }
+            });
         }
     }
 }

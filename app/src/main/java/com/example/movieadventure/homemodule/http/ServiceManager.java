@@ -1,7 +1,7 @@
 package com.example.movieadventure.homemodule.http;
 
-import com.example.movieadventure.common.pojo.MovieList;
-import com.example.movieadventure.common.pojo.Result;
+import com.example.movieadventure.common.KeyDirectory;
+import com.example.movieadventure.common.pojos.MovieList;
 import com.example.movieadventure.homemodule.HomeActivityMvp;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -39,19 +39,19 @@ public class ServiceManager  {
         apiService = retrofit.create(TheMovieApiServices.class);
     }
     public void getMovies(final HomeActivityMvp.GetMovieInteractor.onFinishedListener callbackGetMovie){
-        Call<MovieList> call =  apiService.getTopMovie("559053a6af29171c879dfd14e7bc20b6");
+        Call<MovieList> call =  apiService.getTopMovie(KeyDirectory.getApyKey());
         call.enqueue(new retrofit2.Callback<MovieList>() {
             @Override
             public void onResponse(Call<MovieList> call, Response<MovieList> response) {
                 try {
-                    callbackGetMovie.onSuccess(response.body().getResults());
+                    callbackGetMovie.onSuccessListenerGetMovie(response.body().getResults());
                 } catch (Throwable e) {
-                    callbackGetMovie.onFailure(e);
+                    callbackGetMovie.onFailureListenerGetMovie(e);
                 }
             }
             @Override
             public void onFailure(Call<MovieList> call, Throwable t) {
-                callbackGetMovie.onFailure(t);
+                callbackGetMovie.onFailureListenerGetMovie(t);
             }
         });
     }
