@@ -7,5 +7,10 @@
     <string name="homee_slider_popular">Peliculas Populares</string>
     <string name="home_appBar_options">Configuración</string>
     <string name="home_appBar_logout">Cerrar Sesión</string>
+    <string name="home_pager_ratedTop">Las mejores calificadas.</string>
+    <string name="movie_title">Nombre de la Pelicula</string>
+    <string name="details_description">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.</string>
+    <string name="details_date">May 15th, 2019</string>
+    <string name="details_button_readMore">READ MORE</string>
 
 </resources>

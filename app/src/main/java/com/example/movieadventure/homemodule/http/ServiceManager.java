@@ -2,6 +2,7 @@ package com.example.movieadventure.homemodule.http;
 
 import com.example.movieadventure.common.KeyDirectory;
 import com.example.movieadventure.common.pojos.MovieList;
+import com.example.movieadventure.common.pojos.TopRatedMovieList;
 import com.example.movieadventure.homemodule.HomeActivityMvp;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -37,8 +38,9 @@ public class ServiceManager  {
                 .baseUrl(URL_TEMP)
                 .client(okHttpClient).build();
         apiService = retrofit.create(TheMovieApiServices.class);
+
     }
-    public void getMovies(final HomeActivityMvp.GetMovieInteractor.onFinishedListener callbackGetMovie){
+    public void getTopMovies(final HomeActivityMvp.GetMovieInteractor.onRequestGetToTopMovieListener callbackGetMovie){
         Call<MovieList> call =  apiService.getTopMovie(KeyDirectory.getApyKey());
         call.enqueue(new retrofit2.Callback<MovieList>() {
             @Override
@@ -52,6 +54,25 @@ public class ServiceManager  {
             @Override
             public void onFailure(Call<MovieList> call, Throwable t) {
                 callbackGetMovie.onFailureListenerGetMovie(t);
+            }
+        });
+    }
+    public void getTopRatedMovies(final HomeActivityMvp.GetMovieInteractor.onRequestGetToTopRatedMovieListener callbackGetTopRatedMovie){
+        Call<TopRatedMovieList> call = apiService.getTopRated(KeyDirectory.getApyKey());
+        call.enqueue(new retrofit2.Callback<TopRatedMovieList>() {
+            @Override
+            public void onResponse(Call<TopRatedMovieList> call, Response<TopRatedMovieList> response) {
+              /*  try {
+                    if (response.body() != null) {*/
+                        callbackGetTopRatedMovie.onSuccessListenerGetTopRatedMovie(response.body().getResults());
+/*                    }
+                } catch (Throwable e) {
+                    callbackGetTopRatedMovie.onFailureListenerGetTopRatedMovie(e);
+                }*/
+            }
+            @Override
+            public void onFailure(Call<TopRatedMovieList> call, Throwable t) {
+                callbackGetTopRatedMovie.onFailureListenerGetTopRatedMovie(t);
             }
         });
     }

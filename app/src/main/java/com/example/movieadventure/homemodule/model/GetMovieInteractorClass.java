@@ -7,8 +7,14 @@ import com.example.movieadventure.homemodule.http.ServiceManager;
 public class GetMovieInteractorClass implements HomeActivityMvp.GetMovieInteractor {
 
     @Override
-    public void getMovieArrayLit(final onFinishedListener onFinishedListener) {
+    public void getMovieArrayLit(final onRequestGetToTopMovieListener onFinishedListener) {
         ServiceManager serviceManager = new ServiceManager(KeyDirectory.getBaseUrl());
-        serviceManager.getMovies(onFinishedListener);
+        serviceManager.getTopMovies(onFinishedListener);
+    }
+
+    @Override
+    public void getTopRatedMovieList(onRequestGetToTopRatedMovieListener onFinishedListenerGetTopRatedMovie) {
+        ServiceManager serviceManager = new ServiceManager(KeyDirectory.getBaseUrlRated());
+        serviceManager.getTopRatedMovies(onFinishedListenerGetTopRatedMovie);
     }
 }

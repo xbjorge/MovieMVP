@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="home_txtSize_movieName">20sp</dimen>
-    <dimen name="home_width_imvMovie">120dp</dimen>
-    <dimen name="home_height_imvMovie">140dp</dimen>
+    <dimen name="home_width_imvMovie">100dp</dimen>
+    <dimen name="home_height_imvMovie">120dp</dimen>
     <dimen name="home_margin_start_imvHomeMovie">24dp</dimen>
     <dimen name="home_margin_bottom_imvHomeMovie">8dp</dimen>
     <dimen name="home_width_imbPlay">34dp</dimen>
     <dimen name="home_height_imbPlay">34dp</dimen>
     <dimen name="home_slider_populate_size">18sp</dimen>
+    <dimen name="home_padding">16dp</dimen>
 </resources>

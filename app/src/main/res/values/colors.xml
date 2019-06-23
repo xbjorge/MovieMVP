@@ -6,8 +6,9 @@
     <color name="colorAccent">#00bcd4</color>
     <color name="colorSecondaryLight">#62efff</color>
     <color name="colorSecondaryDark">#008ba3</color>
-    <color name="colorPrimaryText">#ffffff</color>
+    <color name="colorPrimaryText">#FFFFFF</color>
     <color name="colorSecondaryText">#ffffff</color>
     <color name="colorBackgroundBlack">#000000</color>
+    <color name="colorGrayLigth">#c3c3c3</color>
 
 </resources>

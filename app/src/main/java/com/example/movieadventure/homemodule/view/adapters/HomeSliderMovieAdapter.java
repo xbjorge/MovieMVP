@@ -1,4 +1,4 @@
-package com.example.movieadventure.homemodule.homemodule.view.adapters;
+package com.example.movieadventure.homemodule.view.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -14,8 +14,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.movieadventure.R;
-import com.example.movieadventure.homemodule.common.KeyDirectory;
-import com.example.movieadventure.homemodule.common.pojos.Result;
+import com.example.movieadventure.common.KeyDirectory;
+import com.example.movieadventure.common.pojos.Result;
 
 import java.util.List;
 
@@ -49,11 +49,11 @@ public class HomeSliderMovieAdapter extends PagerAdapter {
                 .fitCenter()
                 .diskCacheStrategy(DiskCacheStrategy.ALL);
         Glide.with(mContext)
-                .load(KeyDirectory.getUrlBasePath()+resultList.get(position).getPosterPath())
+                .load(KeyDirectory.getUrlBaseImage()+resultList.get(position).getPosterPath())
                 .apply(options)
                 .into(sliderHomeMovie);
         Glide.with(mContext)
-                .load(R.drawable.bigsick)
+                .load(KeyDirectory.getUrlBaseImage()+resultList.get(position).getBackdropPath())
                 .apply(options)
                 .into(sliderHomeTrailer);
 

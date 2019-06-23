@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -15,18 +15,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bigsick"/>
+        app:srcCompat="@drawable/bigsick" />
 
-    <View
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_home_Trailer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imv_home_Trailer"
+        app:srcCompat="@drawable/gradient_bg" />
+
+    <!--    <View
         android:id="@+id/textureView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:background="@android:drawable/screen_background_dark_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imv_home_Trailer"
         app:layout_constraintStart_toStartOf="@+id/imv_home_Trailer"
-        app:layout_constraintTop_toTopOf="@+id/imv_home_Movie" />
+        app:layout_constraintTop_toTopOf="@+id/imv_home_Movie" />-->
 
     <TextView
         android:id="@+id/txt_home_movieName"
@@ -35,7 +45,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_mono_medium_italic"
         android:gravity="center"
         android:text="@string/home_txt_movieName"
@@ -45,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imv_home_Trailer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imv_home_Movie"
-        app:layout_constraintTop_toTopOf="@+id/textureView" />
+        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton" />
 
     <ImageView
         android:id="@+id/imv_home_Movie"
@@ -53,6 +63,7 @@
         android:layout_height="@dimen/home_height_imvMovie"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="@dimen/home_margin_bottom_imvHomeMovie"
+        android:scaleType="fitXY"
         android:src="@drawable/llamanamor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -62,11 +73,18 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/txt_home_movieName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imv_home_Trailer"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        app:layout_constraintStart_toStartOf="@+id/imv_home_Movie"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="38dp" />
 
 </android.support.constraint.ConstraintLayout>

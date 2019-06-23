@@ -3,13 +3,14 @@ package com.example.movieadventure.homemodule.presenter;
 import android.support.v4.view.ViewPager;
 
 import com.example.movieadventure.common.pojos.Result;
+import com.example.movieadventure.common.pojos.TopRatedMovie;
 import com.example.movieadventure.homemodule.HomeActivityMvp;
 import com.example.movieadventure.homemodule.view.MainActivity;
 
 import java.util.List;
 import java.util.TimerTask;
 
-public class HomeActivityPresenterClass implements HomeActivityMvp.presenter, HomeActivityMvp.GetMovieInteractor.onFinishedListener {
+public class HomeActivityPresenterClass implements HomeActivityMvp.presenter, HomeActivityMvp.GetMovieInteractor.onRequestGetToTopMovieListener, HomeActivityMvp.GetMovieInteractor.onRequestGetToTopRatedMovieListener {
 
     private HomeActivityMvp.view homeView;
     private HomeActivityMvp.GetMovieInteractor getMovieInteractor;
@@ -30,6 +31,7 @@ public class HomeActivityPresenterClass implements HomeActivityMvp.presenter, Ho
             homeView.showPorgressBar();
         }
         getMovieInteractor.getMovieArrayLit(this);
+        getMovieInteractor.getTopRatedMovieList(this);
     }
 
     @Override
@@ -48,6 +50,23 @@ public class HomeActivityPresenterClass implements HomeActivityMvp.presenter, Ho
             homeView.hideProgressBar();
         }
     }
+
+    @Override
+    public void onSuccessListenerGetTopRatedMovie(List<TopRatedMovie> movieTopRatedList) {
+        if ((homeView != null)){
+            homeView.setDataToPagerView(movieTopRatedList);
+            homeView.hideProgressBar();
+        }
+    }
+
+    @Override
+    public void onFailureListenerGetTopRatedMovie(Throwable errorGetTopRated) {
+        if (homeView != null){
+            homeView.onResponseFailureGetDataToRated(errorGetTopRated);
+            homeView.hideProgressBar();
+        }
+    }
+
     public static class SliderTimer extends TimerTask{
         private MainActivity mainActivity;
         private List<Result> listResult;
